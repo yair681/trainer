@@ -1,122 +1,203 @@
 <!DOCTYPE html>
 <html lang="he">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מאמן כושר אישי</title>
-    <style>
-        /* כלליים */
-        body {
-            font-family: 'Arial', sans-serif;
-            direction: rtl;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-        }
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
-        }
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        .container {
-            padding: 20px;
-        }
-        .intro, .services, .contact {
-            margin-bottom: 40px;
-        }
-        .service {
-            display: flex;
-            justify-content: space-between;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 10px 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .service h3 {
-            margin: 0;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .accessibility-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            z-index: 1000;
-        }
-        .accessibility-options {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 20px;
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            width: 250px;
-        }
-        .accessibility-options button {
-            background-color: #4CAF50;
-        }
-        .accessibility-options button:hover {
-            background-color: #45a049;
-        }
-        .links-footer a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .links-footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>מאמן כושר אישי</title>
+
+<style>
+/* ------------------------------------------------ */
+/* עיצוב כללי */
+/* ------------------------------------------------ */
+body {
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    font-family: "Alef", Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #222;
+    transition: 0.3s ease-in-out;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+/* ------------------------------------------------ */
+/* Header */
+/* ------------------------------------------------ */
+header {
+    background: linear-gradient(90deg,#2ecc71,#27ae60);
+    padding: 40px 0;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 42px;
+}
+
+/* ------------------------------------------------ */
+/* תפריט ניווט */
+/* ------------------------------------------------ */
+nav {
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #2ecc71;
+}
+
+/* ------------------------------------------------ */
+/* קונטיינר */
+/* ------------------------------------------------ */
+.container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* ------------------------------------------------ */
+/* Intro */
+/* ------------------------------------------------ */
+.intro {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 16px rgba(0,0,0,0.1);
+    animation: fade 0.7s ease-in-out;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* ------------------------------------------------ */
+/* שירותים */
+/* ------------------------------------------------ */
+.service {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 16px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.service h3 {
+    color: #27ae60;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* ------------------------------------------------ */
+/* טופס */
+/* ------------------------------------------------ */
+form input, form textarea {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+
+form button {
+    background-color: #27ae60;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: #219150;
+}
+
+/* ------------------------------------------------ */
+/* Footer */
+/* ------------------------------------------------ */
+footer {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #2ecc71;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* ------------------------------------------------ */
+/* כפתור נגישות */
+/* ------------------------------------------------ */
+.access-btn {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    background: #222;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 26px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.access-panel {
+    display: none;
+    position: fixed;
+    left: 20px;
+    bottom: 90px;
+    width: 260px;
+    background: #222;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.access-panel button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    background: #2ecc71;
+    border: none;
+    font-size: 16px;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.access-panel button:hover {
+    background: #27ae60;
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
@@ -124,340 +205,106 @@
 </header>
 
 <nav>
-    <a href="#home">דף הבית</a>
+    <a href="#home">בית</a>
     <a href="#services">שירותים</a>
-    <a href="#contact">צור קשר</a>
+    <a href="#contact">יצירת קשר</a>
 </nav>
 
 <div class="container">
+
     <section id="home" class="intro">
         <h2>ברוכים הבאים!</h2>
-        <p>אני מאמן כושר אישי עם ניסיון רב בעבודה עם אנשים בכל הרמות. בין אם אתם מחפשים לשפר את הכושר הכללי שלכם, להפחית במשקל או לשפר את כוח השרירים, אני כאן כדי לעזור לכם להשיג את המטרות שלכם.</p>
+        <p>
+            אני מאמן כושר אישי עם ניסיון רב באימונים אישיים, תזונה, פיתוח גוף ושיפור אורח חיים.
+            יחד נבנה תכנית שתביא אתכם לתוצאות אמיתיות.
+        </p>
     </section>
 
-    <section id="services" class="services">
-        <h2>השירותים שאני מציע</h2>
+    <section id="services">
+        <h2>השירותים שלי</h2>
+
         <div class="service">
-            <div>
-                <h3>אימוני כושר אישיים</h3>
-                <p>אימונים מותאמים אישית לכל רמה ולכל מטרה, בבית, בחדר כושר או באוויר הפתוח.</p>
-            </div>
-            <div>
-                <h3>תכניות תזונה מותאמות</h3>
-                <p>תכניות תזונה אישיות שיביאו אתכם למטרות שלכם בצורה הבריאה והיעילה ביותר.</p>
-            </div>
+            <h3>אימונים אישיים אחד על אחד</h3>
+            <p>תכנית אישית מלאה, התאמה לפי רמה ומטרות.</p>
         </div>
+
         <div class="service">
-            <div>
-                <h3>אימוני כוח וגמישות</h3>
-                <p>מיקוד בשיפור כוח השרירים, גמישות ויכולת סיבולת.</p>
-            </div>
-            <div>
-                <h3>אימונים קבוצתיים</h3>
-                <p>קבוצות אימון שמביאות אתכם להתגבר על אתגרים ביחד, עם מוטיבציה גבוהה.</p>
-            </div>
+            <h3>תכנית תזונה מותאמת</h3>
+            <p>תפריט אישי לפי היעדים – חיטוב, ירידה במשקל, עלייה במסה ועוד.</p>
+        </div>
+
+        <div class="service">
+            <h3>אימונים ביתיים / אונליין</h3>
+            <p>למי שאין זמן – אימונים מכל מקום.</p>
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact">
         <h2>צור קשר</h2>
-        <p>מעוניינים להתחיל לאמן או לשאול שאלה? אני כאן בשבילכם!</p>
         <form id="contactForm">
-            <input type="text" id="name" placeholder="שמך" required>
-            <input type="email" id="email" placeholder="אימייל" required>
-            <textarea id="message" placeholder="הודעה" required></textarea>
-            <button type="submit">שלח הודעה</button>
+            <input type="text" id="name" placeholder="שם מלא" required />
+            <input type="email" id="email" placeholder="אימייל" required />
+            <textarea id="message" placeholder="ההודעה שלך..." required></textarea>
+            <button type="submit">שלח</button>
         </form>
+
         <p id="responseMessage"></p>
     </section>
+
 </div>
 
 <footer>
-    <div class="links-footer">
-        <a href="#privacy-policy">הצהרת פרטיות</a>
-        <a href="#terms">תנאי שימוש</a>
-        <a href="#accessibility-declaration">הצהרת נגישות</a>
-    </div>
-    <p>© 2025 מאמן כושר אישי</p>
+    <a href="#privacy">הצהרת פרטיות</a> |
+    <a href="#terms">תנאי שימוש</a> |
+    <a href="#accessibility">הצהרת נגישות</a>
+    <p>© כל הזכויות שמורות 2025</p>
 </footer>
 
 <!-- כפתור נגישות -->
-<button class="accessibility-button" onclick="toggleAccessibilityOptions()">A+</button>
+<button class="access-btn" onclick="toggleAccess()">☰</button>
 
-<div class="accessibility-options" id="accessibilityOptions">
-    <h4>אפשרויות נגישות</h4>
-    <button onclick="increaseFontSize()">הגדל גופן</button>
-    <button onclick="decreaseFontSize()">הקטן גופן</button>
-    <button onclick="toggleHighContrast()">הפעל/הכבה ניגודיות גבוהה</button>
+<div class="access-panel" id="accessPanel">
+    <button onclick="bigger()">הגדלת טקסט</button>
+    <button onclick="smaller()">הקטנת טקסט</button>
+    <button onclick="highContrast()">ניגודיות גבוהה</button>
+    <button onclick="highlightLinks()">הדגשת קישורים</button>
 </div>
 
 <script>
-    // פונקציות נגישות
-    function toggleAccessibilityOptions() {
-        const options = document.getElementById('accessibilityOptions');
-        options.style.display = options.style.display === 'block' ? 'none' : 'block';
-    }
+let big = false;
+let contrast = false;
+let highlighted = false;
 
-    function increaseFontSize() {
-        document.body.style.fontSize = '18px';
-    }
+function toggleAccess() {
+    const panel = document.getElementById("accessPanel");
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
 
-    function decreaseFontSize() {
-        document.body.style.fontSize = '14px';
-    }
+function bigger() {
+    document.body.style.fontSize = "20px";
+}
+function smaller() {
+    document.body.style.fontSize = "16px";
+}
 
-    let highContrast = false;
-    function toggleHighContrast() {
-        highContrast = !highContrast;
-        document.body.style.backgroundColor = highContrast ? '#000' : '#f4f4f9';
-        document.body.style.color = highContrast ? '#fff' : '#000';
-        document.querySelector('header').style.backgroundColor = highContrast ? '#ff6600' : '#4CAF50';
-        document.querySelector('nav').style.backgroundColor = highContrast ? '#ff6600' : '#333';
-    }
+function highContrast() {
+    contrast = !contrast;
+    document.body.style.background = contrast ? "black" : "#f5f5f5";
+    document.body.style.color = contrast ? "yellow" : "#000";
+}
 
-    // טיפול בטופס יצירת קשר
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();  // מונע את שליחת הטופס בצורה רגילה
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        const responseMessage = `תודה ${name}! ניצור קשר עם ${email} בהקדם בנוגע להודעתך: "${message}"`;
-        document.getElementById('responseMessage').textContent = responseMessage;
-        document.getElementById('contactForm').reset();
+function highlightLinks() {
+    highlighted = !highlighted;
+    document.querySelectorAll("a").forEach(a => {
+        a.style.textDecoration = highlighted ? "underline wavy red" : "none";
     });
-</script>
+}
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="he">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מאמן כושר אישי</title>
-    <style>
-        /* כלליים */
-        body {
-            font-family: 'Arial', sans-serif;
-            direction: rtl;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-        }
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
-        }
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        .container {
-            padding: 20px;
-        }
-        .intro, .services, .contact {
-            margin-bottom: 40px;
-        }
-        .service {
-            display: flex;
-            justify-content: space-between;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 10px 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .service h3 {
-            margin: 0;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .accessibility-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            z-index: 1000;
-        }
-        .accessibility-options {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 20px;
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            width: 250px;
-        }
-        .accessibility-options button {
-            background-color: #4CAF50;
-        }
-        .accessibility-options button:hover {
-            background-color: #45a049;
-        }
-        .links-footer a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .links-footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>מאמן כושר אישי</h1>
-</header>
-
-<nav>
-    <a href="#home">דף הבית</a>
-    <a href="#services">שירותים</a>
-    <a href="#contact">צור קשר</a>
-</nav>
-
-<div class="container">
-    <section id="home" class="intro">
-        <h2>ברוכים הבאים!</h2>
-        <p>אני מאמן כושר אישי עם ניסיון רב בעבודה עם אנשים בכל הרמות. בין אם אתם מחפשים לשפר את הכושר הכללי שלכם, להפחית במשקל או לשפר את כוח השרירים, אני כאן כדי לעזור לכם להשיג את המטרות שלכם.</p>
-    </section>
-
-    <section id="services" class="services">
-        <h2>השירותים שאני מציע</h2>
-        <div class="service">
-            <div>
-                <h3>אימוני כושר אישיים</h3>
-                <p>אימונים מותאמים אישית לכל רמה ולכל מטרה, בבית, בחדר כושר או באוויר הפתוח.</p>
-            </div>
-            <div>
-                <h3>תכניות תזונה מותאמות</h3>
-                <p>תכניות תזונה אישיות שיביאו אתכם למטרות שלכם בצורה הבריאה והיעילה ביותר.</p>
-            </div>
-        </div>
-        <div class="service">
-            <div>
-                <h3>אימוני כוח וגמישות</h3>
-                <p>מיקוד בשיפור כוח השרירים, גמישות ויכולת סיבולת.</p>
-            </div>
-            <div>
-                <h3>אימונים קבוצתיים</h3>
-                <p>קבוצות אימון שמביאות אתכם להתגבר על אתגרים ביחד, עם מוטיבציה גבוהה.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2>צור קשר</h2>
-        <p>מעוניינים להתחיל לאמן או לשאול שאלה? אני כאן בשבילכם!</p>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="שמך" required>
-            <input type="email" id="email" placeholder="אימייל" required>
-            <textarea id="message" placeholder="הודעה" required></textarea>
-            <button type="submit">שלח הודעה</button>
-        </form>
-        <p id="responseMessage"></p>
-    </section>
-</div>
-
-<footer>
-    <div class="links-footer">
-        <a href="#privacy-policy">הצהרת פרטיות</a>
-        <a href="#terms">תנאי שימוש</a>
-        <a href="#accessibility-declaration">הצהרת נגישות</a>
-    </div>
-    <p>© 2025 מאמן כושר אישי</p>
-</footer>
-
-<!-- כפתור נגישות -->
-<button class="accessibility-button" onclick="toggleAccessibilityOptions()">A+</button>
-
-<div class="accessibility-options" id="accessibilityOptions">
-    <h4>אפשרויות נגישות</h4>
-    <button onclick="increaseFontSize()">הגדל גופן</button>
-    <button onclick="decreaseFontSize()">הקטן גופן</button>
-    <button onclick="toggleHighContrast()">הפעל/הכבה ניגודיות גבוהה</button>
-</div>
-
-<script>
-    // פונקציות נגישות
-    function toggleAccessibilityOptions() {
-        const options = document.getElementById('accessibilityOptions');
-        options.style.display = options.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function increaseFontSize() {
-        document.body.style.fontSize = '18px';
-    }
-
-    function decreaseFontSize() {
-        document.body.style.fontSize = '14px';
-    }
-
-    let highContrast = false;
-    function toggleHighContrast() {
-        highContrast = !highContrast;
-        document.body.style.backgroundColor = highContrast ? '#000' : '#f4f4f9';
-        document.body.style.color = highContrast ? '#fff' : '#000';
-        document.querySelector('header').style.backgroundColor = highContrast ? '#ff6600' : '#4CAF50';
-        document.querySelector('nav').style.backgroundColor = highContrast ? '#ff6600' : '#333';
-    }
-
-    // טיפול בטופס יצירת קשר
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();  // מונע את שליחת הטופס בצורה רגילה
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        const responseMessage = `תודה ${name}! ניצור קשר עם ${email} בהקדם בנוגע להודעתך: "${message}"`;
-        document.getElementById('responseMessage').textContent = responseMessage;
-        document.getElementById('contactForm').reset();
-    });
+document.getElementById("contactForm").onsubmit = function (e) {
+    e.preventDefault();
+    document.getElementById("responseMessage").innerText =
+        "תודה! נחזור אליך בהקדם.";
+};
 </script>
 
 </body>
