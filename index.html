@@ -191,11 +191,48 @@ footer a {
     cursor: pointer;
 }
 
-.access-panel button:hover {
+/* ------------------------------------------------ */
+/* חלונות פופ-אפ */
+/* ------------------------------------------------ */
+.modal-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+}
+
+.modal-box {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    margin: 120px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    animation: fadeIn 0.4s ease-out;
+}
+
+.modal-close {
     background: #27ae60;
+    border: none;
+    padding: 10px 18px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
 }
 
 </style>
+
 </head>
 
 <body>
@@ -225,7 +262,7 @@ footer a {
 
         <div class="service">
             <h3>אימונים אישיים אחד על אחד</h3>
-            <p>תכנית אישית מלאה, התאמה לפי רמה ומטרות.</p>
+            <p>תכנית מותאמת מלאה, התקדמות שבועית ובקרה מלאה.</p>
         </div>
 
         <div class="service">
@@ -235,7 +272,7 @@ footer a {
 
         <div class="service">
             <h3>אימונים ביתיים / אונליין</h3>
-            <p>למי שאין זמן – אימונים מכל מקום.</p>
+            <p>פתרון מצוין למי שאין זמן להגיע לחדר הכושר.</p>
         </div>
     </section>
 
@@ -254,11 +291,50 @@ footer a {
 </div>
 
 <footer>
-    <a href="#privacy">הצהרת פרטיות</a> |
-    <a href="#terms">תנאי שימוש</a> |
-    <a href="#accessibility">הצהרת נגישות</a>
+    <a href="javascript:void(0)" onclick="openModal('privacyModal')">הצהרת פרטיות</a> |
+    <a href="javascript:void(0)" onclick="openModal('termsModal')">תנאי שימוש</a> |
+    <a href="javascript:void(0)" onclick="openModal('accessibilityModal')">הצהרת נגישות</a>
+
     <p>© כל הזכויות שמורות 2025</p>
 </footer>
+
+
+<!-- פופ-אפ הצהרת פרטיות -->
+<div class="modal-bg" id="privacyModal">
+    <div class="modal-box">
+        <h2>הצהרת פרטיות</h2>
+        <p>
+            אנו מכבדים את פרטיות המשתמשים. המידע הנמסר באתר משמש אך ורק לצורך מתן שירות.
+            אין העברת מידע לצד ג׳ ללא אישור. נתונים נשמרים בצורה מאובטחת.
+        </p>
+        <button class="modal-close" onclick="closeModal('privacyModal')">סגור</button>
+    </div>
+</div>
+
+<!-- פופ-אפ תנאי שימוש -->
+<div class="modal-bg" id="termsModal">
+    <div class="modal-box">
+        <h2>תנאי שימוש</h2>
+        <p>
+            השימוש באתר מהווה הסכמה לתנאים. אין להעתיק או להשתמש בתוכן ללא אישור.
+            השירות באתר ניתן כפי שהוא (AS-IS) וללא אחריות לתוצאות האימון.
+        </p>
+        <button class="modal-close" onclick="closeModal('termsModal')">סגור</button>
+    </div>
+</div>
+
+<!-- פופ-אפ הצהרת נגישות -->
+<div class="modal-bg" id="accessibilityModal">
+    <div class="modal-box">
+        <h2>הצהרת נגישות</h2>
+        <p>
+            אתר זה נבנה בהתאם להנחיות WCAG 2.1 AA.
+            במידה ונתקלתם בבעיה — ניתן לפנות אלינו ונטפל בה מיד.
+        </p>
+        <button class="modal-close" onclick="closeModal('accessibilityModal')">סגור</button>
+    </div>
+</div>
+
 
 <!-- כפתור נגישות -->
 <button class="access-btn" onclick="toggleAccess()">☰</button>
@@ -270,29 +346,25 @@ footer a {
     <button onclick="highlightLinks()">הדגשת קישורים</button>
 </div>
 
-<script>
-let big = false;
-let contrast = false;
-let highlighted = false;
 
+<script>
+/* כפתור נגישות */
 function toggleAccess() {
     const panel = document.getElementById("accessPanel");
     panel.style.display = panel.style.display === "block" ? "none" : "block";
 }
 
-function bigger() {
-    document.body.style.fontSize = "20px";
-}
-function smaller() {
-    document.body.style.fontSize = "16px";
-}
+function bigger() { document.body.style.fontSize = "20px"; }
+function smaller() { document.body.style.fontSize = "16px"; }
 
+let contrast = false;
 function highContrast() {
     contrast = !contrast;
     document.body.style.background = contrast ? "black" : "#f5f5f5";
     document.body.style.color = contrast ? "yellow" : "#000";
 }
 
+let highlighted = false;
 function highlightLinks() {
     highlighted = !highlighted;
     document.querySelectorAll("a").forEach(a => {
@@ -300,6 +372,22 @@ function highlightLinks() {
     });
 }
 
+/* פופ-אפים */
+function openModal(id) {
+    document.getElementById(id).style.display = "block";
+}
+
+function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+}
+
+window.addEventListener("click", function(e){
+    if (e.target.classList.contains("modal-bg")) {
+        e.target.style.display = "none";
+    }
+});
+
+/* טופס יצירת קשר */
 document.getElementById("contactForm").onsubmit = function (e) {
     e.preventDefault();
     document.getElementById("responseMessage").innerText =
