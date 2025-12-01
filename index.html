@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מאמן כושר אישי</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        .intro, .services, .contact {
+            margin-bottom: 40px;
+        }
+        .service {
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .service h3 {
+            margin: 0;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>מאמן כושר אישי</h1>
+</header>
+
+<nav>
+    <a href="#home">דף הבית</a>
+    <a href="#services">שירותים</a>
+    <a href="#contact">צור קשר</a>
+</nav>
+
+<div class="container">
+    <section id="home" class="intro">
+        <h2>ברוכים הבאים!</h2>
+        <p>אני מאמן כושר אישי עם ניסיון רב בעבודה עם אנשים בכל הרמות. בין אם אתם מחפשים לשפר את הכושר הכללי שלכם, להפחית במשקל או לשפר את כוח השרירים, אני כאן כדי לעזור לכם להשיג את המטרות שלכם.</p>
+    </section>
+
+    <section id="services" class="services">
+        <h2>השירותים שאני מציע</h2>
+        <div class="service">
+            <div>
+                <h3>אימוני כושר אישיים</h3>
+                <p>אימונים מותאמים אישית לכל רמה ולכל מטרה, בבית, בחדר כושר או באוויר הפתוח.</p>
+            </div>
+            <div>
+                <h3>תכניות תזונה מותאמות</h3>
+                <p>תכניות תזונה אישיות שיביאו אתכם למטרות שלכם בצורה הבריאה והיעילה ביותר.</p>
+            </div>
+        </div>
+        <div class="service">
+            <div>
+                <h3>אימוני כוח וגמישות</h3>
+                <p>מיקוד בשיפור כוח השרירים, גמישות ויכולת סיבולת.</p>
+            </div>
+            <div>
+                <h3>אימונים קבוצתיים</h3>
+                <p>קבוצות אימון שמביאות אתכם להתגבר על אתגרים ביחד, עם מוטיבציה גבוהה.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>צור קשר</h2>
+        <p>מעוניינים להתחיל לאמן או לשאול שאלה? אני כאן בשבילכם!</p>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="שמך" required>
+            <input type="email" id="email" placeholder="אימייל" required>
+            <textarea id="message" placeholder="הודעה" required></textarea>
+            <button type="submit">שלח הודעה</button>
+        </form>
+        <p id="responseMessage"></p>
+    </section>
+</div>
+
+<footer>
+    <p>© 2025 מאמן כושר אישי</p>
+</footer>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();  // מונע את שליחת הטופס בצורה רגילה
+
+        // משתנים מהטופס
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // תגובה
+        const responseMessage = `תודה ${name}! ניצור קשר עם ${email} בהקדם בנוגע להודעתך: "${message}"`;
+        document.getElementById('responseMessage').textContent = responseMessage;
+
+        // אפס את הטופס אחרי שליחה
+        document.getElementById('contactForm').reset();
+    });
+</script>
+
+</body>
+</html>
